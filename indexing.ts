@@ -20,6 +20,12 @@ export type Collection = {
   collectionURI: string
   infoId: string
   ownerId: string
+  solarRadiation: int
+  temperature: int
+  humidity: int
+  precipitation: int
+  atmosphericPressure: int
+  wind: int
   createdAt: Date
   updatedAt: Date
 }
@@ -32,6 +38,12 @@ export type CollectionInfo = {
   id: string
   collectionName: string | null
   collectionURI: string
+  solarRadiation: int
+  temperature: int
+  humidity: int
+  precipitation: int
+  atmosphericPressure: int
+  wind: int
   createdAt: Date
   updatedAt: Date
 }
@@ -50,6 +62,12 @@ export type NFT = {
   metaData: string | null
   collectionId: string
   ownerId: string
+  solarRadiation: int
+  temperature: int
+  humidity: int
+  precipitation: int
+  atmosphericPressure: int
+  wind: int
   createdAt: Date
   updatedAt: Date
 }
@@ -66,6 +84,12 @@ export type NFTRevision = {
   image: string | null
   description: string | null
   metaData: string | null
+  solarRadiation: int
+  temperature: int
+  humidity: int
+  precipitation: int
+  atmosphericPressure: int
+  wind: int
   createdAt: Date
   updatedAt: Date
 }
