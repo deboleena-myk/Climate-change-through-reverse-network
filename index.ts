@@ -41,6 +41,12 @@ const addNFTAPI = async ({ token, collectionId, info }: {token: any, collectionI
     name: info.name,
     image: info.image,
     description: info.description,
+    solarRadiation: info.solarRadiation,
+    temperature: info.temperature,
+    humidity: info.humidity,
+    precipitation: info.precipitation,
+    atmosphericPressure: info.atmosphericPressure,
+    wind: info.wind
     metaData: info.metaData,
   };
   if (collectionId) {
@@ -58,6 +64,12 @@ const updateNFTAPI = async ({ token, nftId, info }) => {
       name: info.name,
       image: info.image,
       description: info.description,
+      solarRadiation: info.solarRadiation,
+      temperature: info.temperature,
+      humidity: info.humidity,
+      precipitation: info.precipitation,
+      atmosphericPressure: info.atmosphericPressure,
+      wind: info.wind
       metaData: info.metaData,
     },
     getHeaders({ token })
