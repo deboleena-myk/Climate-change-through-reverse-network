@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/anildukkipatty/revise.git"
+    "url": "git+ssh://git@github.com/deboleena-myk/Climate-change-through-reverse-network.git"
   },
   "keywords": [
     "NFT",
@@ -17,10 +17,10 @@
     "dynamic",
     "nft"
   ],
-  "author": "Revise",
+  "author": "deboleena-myk",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/anildukkipatty/revise/issues"
+    "url": "https://github.com/deboleena-myk/Climate-change-through-reverse-network/issues"
   },
   "homepage": "https://docs.revise.network",
   "devDependencies": {
