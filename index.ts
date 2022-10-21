@@ -41,6 +41,7 @@ const addNFTAPI = async ({ token, collectionId, info }: {token: any, collectionI
     name: info.name,
     image: info.image,
     description: info.description,
+    region: info.region,
     solarRadiation: info.solarRadiation,
     temperature: info.temperature,
     humidity: info.humidity,
@@ -64,6 +65,7 @@ const updateNFTAPI = async ({ token, nftId, info }) => {
       name: info.name,
       image: info.image,
       description: info.description,
+      region: info.region,
       solarRadiation: info.solarRadiation,
       temperature: info.temperature,
       humidity: info.humidity,
@@ -159,6 +161,13 @@ export interface TokenDataPartial {
   image: string;
   tokenId: string;
   description?: string;
+  region: string;
+  solarRadiation: int;
+  temperature: int;
+  humidity: int;
+  precipitation: int;
+  atmosphericPressure: int;
+  wind: int;
 }
 export type Attribute = {[keys in string]: string|number};
 
@@ -199,20 +208,6 @@ class NFTObj {
   }
   setProperty(key: string, value: string|number) {
     const metaData = this.metaDataAsMap();
-    // let isNewProperty = true;
-    // this.nft.metaData = this.nft.metaData.map((attr: Attribute) => {
-    //   const temp = {...attr};
-    //   if (Object.keys(temp)[0] === key) {
-    //     isNewProperty = false;
-    //     temp[key] = value;
-    //   }
-    //   return temp;
-    // })
-    // if (isNewProperty) {
-    //   const o = {};
-    //   o[key] = value;
-    //   this.nft.metaData.push(o);
-    // }
     metaData[key] = value;
     this.setMetaData(metaData);
     return this;
@@ -230,11 +225,15 @@ class NFTObj {
     return this;
   }
   setTokenId(tokenId:string) {
-    this.nft.tokenId = tokenId
+    this.nft.tokenId = tokenId;
     return this;
   }
   setDescription(description: string) {
     this.nft.description = description;
+    return this;
+  }
+  setRegion(region: string) {
+    this.nft.region = region;
     return this;
   }
   save() {
@@ -246,12 +245,18 @@ class NFTObj {
         name: this.nft.name,
         image: this.nft.image,
         description: this.nft.description,
+        region: this.nft.region,
+        solarRadiation: this.nft.solarRadiation,
+        temperature: this.nft.temperature,
+        humidity: this.nft.humidity,
+        precipitation: this.nft.precipitation,
+        atmosphericPressure: this.nft.atmosphericPressure,
+        wind: this.nft.wind
         metaData: this.nft.metaData
       }
     })
   }
   // export() {
-  //   return "ipfs://...";
   // }
   async revisions() {
     return (await fetchRevisionsAPI({token: this.auth, nftId: this.nft.id})).revisions;
@@ -277,12 +282,13 @@ export class Revise {
     return addCollectionAPI({token: this.auth, info: {name, uri}})
   }
   addNFT(tokenData: TokenDataPartial, properties: Attribute[], collectionId?: string) {
-    const {tokenId, name, image, description} = tokenData
+    const {tokenId, name, image, description, region} = tokenData
     const info = {
       tokenId,
       name,
       image,
       description: description || "",
+      region,
       metaData: properties
     };
     if (collectionId) {
