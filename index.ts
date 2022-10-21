@@ -256,8 +256,6 @@ class NFTObj {
       }
     })
   }
-  // export() {
-  // }
   async revisions() {
     return (await fetchRevisionsAPI({token: this.auth, nftId: this.nft.id})).revisions;
   }
@@ -321,9 +319,6 @@ export class Revise {
   every(durationString: string) {
     return new Automation(new Duration(durationString));
   }
-  // exportCollection(collectionId: string) {
-  //   return "ipfs://...";
-  // }
 }
 
 class Automation {
