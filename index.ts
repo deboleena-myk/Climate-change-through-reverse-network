@@ -47,7 +47,7 @@ const addNFTAPI = async ({ token, collectionId, info }: {token: any, collectionI
     humidity: info.humidity,
     precipitation: info.precipitation,
     atmosphericPressure: info.atmosphericPressure,
-    wind: info.wind
+    wind: info.wind,
     metaData: info.metaData,
   };
   if (collectionId) {
@@ -71,7 +71,7 @@ const updateNFTAPI = async ({ token, nftId, info }) => {
       humidity: info.humidity,
       precipitation: info.precipitation,
       atmosphericPressure: info.atmosphericPressure,
-      wind: info.wind
+      wind: info.wind,
       metaData: info.metaData,
     },
     getHeaders({ token })
@@ -162,12 +162,12 @@ export interface TokenDataPartial {
   tokenId: string;
   description?: string;
   region: string;
-  solarRadiation: int;
-  temperature: int;
-  humidity: int;
-  precipitation: int;
-  atmosphericPressure: int;
-  wind: int;
+  solarRadiation: string;
+  temperature: string;
+  humidity: string;
+  precipitation: string;
+  atmosphericPressure: string;
+  wind: string;
 }
 export type Attribute = {[keys in string]: string|number};
 
@@ -251,7 +251,7 @@ class NFTObj {
         humidity: this.nft.humidity,
         precipitation: this.nft.precipitation,
         atmosphericPressure: this.nft.atmosphericPressure,
-        wind: this.nft.wind
+        wind: this.nft.wind,
         metaData: this.nft.metaData
       }
     })
