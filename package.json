@@ -1,7 +1,7 @@
 {
   "name": "revise-sdk",
   "version": "0.1.15",
-  "description": "Revise is a protocol that enables building dynamic NFTs. It helps connect NFTs to real-world events and make them interactive. Revise sdk is like a Backend as a service for NFTs.",
+  "description": "An NFT (non-fungible token) is data added to a file that creates a unique signature. It can be an image file, a song, a tweet, a text posted on a website, a physical item, and various other digital formats. This means that someone can own a digital file that it's marked with code to differentiate it from any digital replicas. Revise is a platform that lets you develop dynamic NFTs. They evolve over time. Based on the weather or based on how you interact with them.",
   "main": "./dist/index.js",
   "scripts": {
     "build": "tsc"
